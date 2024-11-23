@@ -1,12 +1,16 @@
 from fastapi import FastAPI
 from routers import calculator, converter
 
-app = FastAPI(title="FastAPI Project with Two Routers")
+
+app = FastAPI()
 
 app.include_router(calculator.router, prefix="/calculator", tags=["Calculator"])
-# Add router here
-app.include_router(converter.router, prefix="/metric-converter", tags=["Metric Converter"])
+
+# Add router here based on the calculator router above
+# Remember to define prefix param!
+app.include_router(converter.router, prefix="/converter", tags=["Metric Converter"])
+
 
 @app.get("/")
 def read_root() -> dict:
-    return {"message": "Welcome to the FastAPI project with Calculator and Metric Converter"}
+    return {"message": "Your server is running!"}
