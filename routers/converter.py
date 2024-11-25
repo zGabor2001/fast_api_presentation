@@ -13,7 +13,7 @@ def km_to_miles(km: float) -> dict:
     return {"kilometers": km, "miles": round(miles, 2)}
 
 
-@router.get("/miles_to_km")
+@router.get("/mi-to-km")
 def miles_to_km(mi: float) -> dict:
     """Convert miles to kilometers."""
     if mi < 0:
