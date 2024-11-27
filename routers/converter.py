@@ -12,14 +12,12 @@ def km_to_miles(km: float) -> dict:
     miles = km * 0.621371
     return {"kilometers": km, "miles": round(miles, 2)}
 
+# Exercise 3 (Bonus) ###
 
-@router.get("/mi-to-km")
-def miles_to_km(mi: float) -> dict:
-    """Convert miles to kilometers."""
-    if mi < 0:
-        raise HTTPException(status_code=400, detail="Distance cannot be negative")
-    km = mi / 0.621371
-    return {"miles": mi, "kilometers": round(km, 2)}
+# What is missing? Implement the opposite function - convert miles to kilometers.
+# Remember, distances cannot be negative.
+# Tip: add an 'if' that returns an HTTPException with the
+# correct status code when the miles number entered is negative.
 
 
 @router.get("/c-to-f")
